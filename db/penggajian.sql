@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.0
+-- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 14, 2021 at 07:34 PM
--- Server version: 10.4.19-MariaDB
--- PHP Version: 8.0.6
+-- Waktu pembuatan: 15 Des 2021 pada 07.21
+-- Versi server: 10.4.22-MariaDB
+-- Versi PHP: 8.0.13
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -24,7 +24,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `data_jabatan`
+-- Struktur dari tabel `data_jabatan`
 --
 
 CREATE TABLE `data_jabatan` (
@@ -36,7 +36,7 @@ CREATE TABLE `data_jabatan` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `data_jabatan`
+-- Dumping data untuk tabel `data_jabatan`
 --
 
 INSERT INTO `data_jabatan` (`id_jabatan`, `nama_jabatan`, `gaji_pokok`, `tj_transport`, `uang_makan`) VALUES
@@ -46,12 +46,13 @@ INSERT INTO `data_jabatan` (`id_jabatan`, `nama_jabatan`, `gaji_pokok`, `tj_tran
 (10, 'Staff Data', '3200000', '400000', '800000'),
 (11, 'Staff Promosi', '4300000', '400000', '300000'),
 (13, 'Staff Kebersihan', '500000', '200000', '200000'),
-(14, 'Admin', '12000000', '1500000', '400000');
+(14, 'Admin', '12000000', '1500000', '400000'),
+(15, 'Staff Tata Usaha', '2500000', '500000', '300000');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `data_kehadiran`
+-- Struktur dari tabel `data_kehadiran`
 --
 
 CREATE TABLE `data_kehadiran` (
@@ -68,14 +69,10 @@ CREATE TABLE `data_kehadiran` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `data_kehadiran`
+-- Dumping data untuk tabel `data_kehadiran`
 --
 
 INSERT INTO `data_kehadiran` (`id_kehadiran`, `bulan`, `nik`, `nama_pegawai`, `jenis_kelamin`, `nama_jabatan`, `hadir`, `sakit`, `alpha`, `izin`) VALUES
-(1, 'December2020', '11313', 'issabela', 'Perempuan', 'Staff Kebersihan', 20, 4, 3, '1'),
-(2, 'December2021', '11313', 'issabela', 'Perempuan', 'Staff Kebersihan', 5, 10, 1, '5'),
-(3, 'December2021', '123124', 'joko', 'Laki-laki', 'Staff Promosi', 17, 3, 3, '0'),
-(4, 'November2021', '11313', 'issabela', 'Perempuan', 'Staff Kebersihan', 20, 3, 1, '3'),
 (5, 'November2021', '112134', 'Ammar Nabil', 'Laki-laki', 'Staff Data', 15, 10, 3, '5'),
 (6, 'December2021', '12345', 'Annisa Kunarji Sari', 'Perempuan', 'Staff Data', 23, 2, 1, '1'),
 (7, 'December2021', '112134', 'Ammar Nabil', 'Laki-laki', 'Staff Data', 28, 1, 1, '0'),
@@ -84,12 +81,23 @@ INSERT INTO `data_kehadiran` (`id_kehadiran`, `bulan`, `nik`, `nama_pegawai`, `j
 (10, 'December2021', '43245342', 'Annisa Kunarji Sari', 'Perempuan', 'Staff Data', 29, 0, 0, '0'),
 (11, 'December2021', '3231', 'Fanya Kartika', 'Perempuan', 'Admin', 30, 0, 0, '0'),
 (12, 'December2021', '4611419066', 'Pandu A', 'Laki-laki', 'Staff Promosi', 15, 12, 0, '0'),
-(13, 'December2021', '4611419069', 'Sandi Loka', 'Laki-laki', 'Staff Planning', 1, 1, 0, '0');
+(13, 'December2021', '4611419069', 'Sandi Loka', 'Laki-laki', 'Staff Planning', 1, 1, 0, '0'),
+(14, 'January2017', '131313', 'Adam Rizky', 'Laki-laki', 'Admin', 30, 0, 1, '0'),
+(15, 'January2017', '112134', 'Ammar Nabil', 'Laki-laki', 'Staff Data', 31, 0, 0, '0'),
+(16, 'January2017', '43245342', 'Annisa Kunarji Sari', 'Perempuan', 'Staff Data', 25, 4, 2, '0'),
+(17, 'January2017', '4611419069', 'Kartika Fanya', 'Perempuan', 'Staff Planning', 29, 0, 0, '2'),
+(18, 'January2017', '4611419066', 'Rafli Hillan', 'Laki-laki', 'Staff Promosi', 31, 0, 0, '0'),
+(19, 'February2018', '131313', 'Adam Rizky', 'Laki-laki', 'Admin', 25, 1, 1, '1'),
+(20, 'February2018', '46114190000', 'Alexander Junaidi', 'Laki-laki', 'Staff Tata Usaha', 25, 2, 0, '1'),
+(21, 'February2018', '112134', 'Ammar Nabil', 'Laki-laki', 'Staff Data', 27, 0, 0, '1'),
+(22, 'February2018', '43245342', 'Annisa Kunarji Sari', 'Perempuan', 'Staff Data', 26, 0, 1, '1'),
+(23, 'February2018', '4611419069', 'Kartika Fanya', 'Perempuan', 'Staff Planning', 28, 0, 0, '0'),
+(24, 'February2018', '4611419066', 'Rafli Hillan', 'Laki-laki', 'Staff Promosi', 25, 1, 1, '1');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `data_pegawai`
+-- Struktur dari tabel `data_pegawai`
 --
 
 CREATE TABLE `data_pegawai` (
@@ -107,20 +115,20 @@ CREATE TABLE `data_pegawai` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `data_pegawai`
+-- Dumping data untuk tabel `data_pegawai`
 --
 
 INSERT INTO `data_pegawai` (`id_pegawai`, `nik`, `nama_pegawai`, `username`, `password`, `jenis_kelamin`, `jabatan`, `tanggal_masuk`, `status`, `photo`, `hak_akses`) VALUES
-(14, '112134', 'Ammar Nabil', 'ammar', '070aa66550916626673f492bdbdb655f', 'Laki-laki', 'Staff Data', '2021-12-01', 'Pegawai Kontrak', 'nabil.png', 2),
+(14, '112134', 'Ammar Nabil', 'ammar', '25f9e794323b453885f5181f1b624d0b', 'Laki-laki', 'Staff Data', '2021-12-01', 'Pegawai Kontrak', 'nabil.png', 2),
 (17, '43245342', 'Annisa Kunarji Sari', 'annisa', 'c9d2cce909ea37234be8af1a1f958805', 'Perempuan', 'Staff Data', '2021-12-14', 'Magang', 'ava5.png', 1),
 (19, '4611419069', 'Kartika Fanya', 'fanyaa', 'a3ac010b10d8f5cbbfabc3df27fc363d', 'Perempuan', 'Staff Planning', '2021-12-11', 'Magang', 'ava4.png', 2),
 (20, '4611419066', 'Rafli Hillan', 'rafli', '202cb962ac59075b964b07152d234b70', 'Laki-laki', 'Staff Promosi', '2021-12-02', 'Pegawai Tetap', 'ava3.png', 1),
-(21, '131313', 'Adam Rizky', 'adam', '827ccb0eea8a706c4c34a16891f84e7b', 'Laki-laki', 'Admin', '2021-12-10', 'Pegawai Tetap', 'ava2.png', 1);
+(21, '131313', 'Adam Rizky', 'adam', '25f9e794323b453885f5181f1b624d0b', 'Laki-laki', 'Admin', '2021-12-10', 'Pegawai Tetap', 'ava2.png', 1);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `hak_akses`
+-- Struktur dari tabel `hak_akses`
 --
 
 CREATE TABLE `hak_akses` (
@@ -130,7 +138,7 @@ CREATE TABLE `hak_akses` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `hak_akses`
+-- Dumping data untuk tabel `hak_akses`
 --
 
 INSERT INTO `hak_akses` (`id`, `keterangan`, `hak_akses`) VALUES
@@ -140,7 +148,7 @@ INSERT INTO `hak_akses` (`id`, `keterangan`, `hak_akses`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `potongan_gaji`
+-- Struktur dari tabel `potongan_gaji`
 --
 
 CREATE TABLE `potongan_gaji` (
@@ -150,7 +158,7 @@ CREATE TABLE `potongan_gaji` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `potongan_gaji`
+-- Dumping data untuk tabel `potongan_gaji`
 --
 
 INSERT INTO `potongan_gaji` (`id`, `potongan`, `jml_potongan`) VALUES
@@ -165,65 +173,65 @@ INSERT INTO `potongan_gaji` (`id`, `potongan`, `jml_potongan`) VALUES
 --
 
 --
--- Indexes for table `data_jabatan`
+-- Indeks untuk tabel `data_jabatan`
 --
 ALTER TABLE `data_jabatan`
   ADD PRIMARY KEY (`id_jabatan`);
 
 --
--- Indexes for table `data_kehadiran`
+-- Indeks untuk tabel `data_kehadiran`
 --
 ALTER TABLE `data_kehadiran`
   ADD PRIMARY KEY (`id_kehadiran`);
 
 --
--- Indexes for table `data_pegawai`
+-- Indeks untuk tabel `data_pegawai`
 --
 ALTER TABLE `data_pegawai`
   ADD PRIMARY KEY (`id_pegawai`);
 
 --
--- Indexes for table `hak_akses`
+-- Indeks untuk tabel `hak_akses`
 --
 ALTER TABLE `hak_akses`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `potongan_gaji`
+-- Indeks untuk tabel `potongan_gaji`
 --
 ALTER TABLE `potongan_gaji`
   ADD PRIMARY KEY (`id`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT untuk tabel yang dibuang
 --
 
 --
--- AUTO_INCREMENT for table `data_jabatan`
+-- AUTO_INCREMENT untuk tabel `data_jabatan`
 --
 ALTER TABLE `data_jabatan`
-  MODIFY `id_jabatan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id_jabatan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
--- AUTO_INCREMENT for table `data_kehadiran`
+-- AUTO_INCREMENT untuk tabel `data_kehadiran`
 --
 ALTER TABLE `data_kehadiran`
-  MODIFY `id_kehadiran` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id_kehadiran` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
--- AUTO_INCREMENT for table `data_pegawai`
+-- AUTO_INCREMENT untuk tabel `data_pegawai`
 --
 ALTER TABLE `data_pegawai`
-  MODIFY `id_pegawai` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `id_pegawai` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
--- AUTO_INCREMENT for table `hak_akses`
+-- AUTO_INCREMENT untuk tabel `hak_akses`
 --
 ALTER TABLE `hak_akses`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT for table `potongan_gaji`
+-- AUTO_INCREMENT untuk tabel `potongan_gaji`
 --
 ALTER TABLE `potongan_gaji`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;

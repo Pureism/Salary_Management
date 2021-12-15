@@ -2,6 +2,20 @@
 
 class DataAbsensi extends CI_Controller
 {
+    public function __construct()
+    {
+        parent::__construct();
+
+        if ($this->session->userdata('hak_akses') != '1') {
+            $this->session->set_flashdata('pesan', '
+                <div class="alert alert-danger alert-dismissible fade show mb-3" role="alert">
+                   <strong>Anda belum login!</strong>
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                </div>
+            ');
+            redirect('welcome');
+        }
+    }
     public function index()
     {
         // Menambah data
@@ -21,7 +35,6 @@ class DataAbsensi extends CI_Controller
             $bulan_tahun = $bulan . $tahun;
         }
 
-
         $data['absensi'] = $this->db->query("SELECT data_kehadiran.*, 
                                                     data_pegawai.nama_pegawai, 
                                                     data_pegawai.jenis_kelamin, 
@@ -31,8 +44,6 @@ class DataAbsensi extends CI_Controller
                                             INNER JOIN data_jabatan ON data_pegawai.jabatan = data_jabatan.nama_jabatan 
                                             WHERE data_kehadiran.bulan='$bulan_tahun' 
                                             ORDER BY data_pegawai.nama_pegawai ASC")->result();
-
-
 
         // Import template
         $this->load->view('templates_admin/header', $data);
@@ -64,7 +75,7 @@ class DataAbsensi extends CI_Controller
             $this->PenggajianModel->insert_batch('data_kehadiran', $simpan);
 
             // Alert jika data berhasil ditambahkan
-            $this->session->set_flashdata('pesan', '
+            $this->session->set_flashdata('absensi', '
                 <div class="alert alert-success alert-dismissible fade show mb-3" role="alert">
                     <i class="fas fa-check-circle mr-3"></i><strong>Data berhasil ditambahkan</strong>
                     <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>

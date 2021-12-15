@@ -72,7 +72,7 @@
             <button class="btn btn-success mb-3" type="submit" name="submit" value="submit"><i class="fas fa-save mr-2"></i>Simpan Absensi</button>
 
             <!-- Table -->
-            <table class="table table-bordered table-striped mb-5">
+            <table class="table table-bordered table-striped mb-5" style="margin-bottom: 20%;">
                 <tr>
                     <th class="text-center">No</th>
                     <th class="text-center">NIK</th>

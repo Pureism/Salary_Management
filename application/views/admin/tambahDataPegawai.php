@@ -1,5 +1,5 @@
 <!-- Begin Page Content -->
-<div class="container-fluid">
+<div class="container-fluid" style="margin-bottom: 100px;">
 
     <!-- Page Heading -->
     <div class="d-sm-flex align-items-center mb-4">
@@ -17,11 +17,26 @@
                 <input type="number" name="nik" class="form-control">
                 <?php echo form_error('nik', '<div class="font-weight-bold text-small text-danger"><i class="fas fa-exclamation-circle mr-2"></i>', '</div>') ?>
             </div>
+
             <div class="form-group">
                 <label>Nama Pegawai</label>
                 <input type="text" name="nama_pegawai" class="form-control">
                 <?php echo form_error('nama_pegawai', '<div class="font-weight-bold text-small text-danger"><i class="fas fa-exclamation-circle mr-2"></i>', '</div>') ?>
             </div>
+
+            <div class="form-group">
+                <label>Username</label>
+                <input type="text" name="username" class="form-control">
+                <?php echo form_error('username', '<div class="font-weight-bold text-small text-danger"><i class="fas fa-exclamation-circle mr-2"></i>', '</div>') ?>
+            </div>
+
+            <div class="form-group">
+                <label>password</label>
+                <input type="password" name="password" class="form-control">
+                <?php echo form_error('password', '<div class="font-weight-bold text-small text-danger"><i class="fas fa-exclamation-circle mr-2"></i>', '</div>') ?>
+            </div>
+
+
             <div class="form-group">
                 <label>Jenis Kelamin</label>
                 <select name="jenis_kelamin" class="form-control">
@@ -59,6 +74,15 @@
             <div class="form-group">
                 <label>Photo</label>
                 <input type="file" name="photo" class="form-control">
+            </div>
+            <div class="form-group">
+                <label>Hak Akses</label>
+                <select name="hak_akses" class="form-control">
+                    <option value="">-- Pilih Hak Akses --</option>
+                    <option value="1">Admin</option>
+                    <option value="2">Pegawai</option>
+                </select>
+                <?php echo form_error('hak_akses', '<div class="font-weight-bold text-small text-danger"><i class="fas fa-exclamation-circle mr-2"></i>', '</div>') ?>
             </div>
             <button type="submit" class="btn btn-md btn-success mt-2"><i class="fas fa-save mr-2"></i>Simpan Pegawai</button>
         </form>

@@ -22,21 +22,31 @@
             <hr style="width: 50% ; border-width:5px; color:red">
         </center>
 
+        <?php
+
+        // Filter untuk menampilkan bulan dan tahun
+        // if ((isset($_GET['bulan']) && $_GET['bulan'] != '') && (isset($_GET['tahun']) && $_GET['tahun'] != '')) {
+        //     $bulan = $_GET['bulan'];
+        //     $tahun = $_GET['tahun'];
+        //     $bulan_tahun = $bulan . $tahun;
+        // } else {
+        //     $bulan = date('m');
+        //     $tahun = date('Y');
+        //     $bulan_tahun = $bulan . $tahun;
+        // }
+        // 
+        ?>
 
         <?php foreach ($potongan as $p) {
-            // Perhitungan Potongan
-            $pot_gaji[] = $p->jml_potongan;
+            $potongan = $p->jml_potongan;
         }
-        $no = 1;
-        foreach ($print_slip as $ps) :
-            $alpha = $ps->alpha * $pot_gaji[0];
-            $potongan_lain = 0;
-            foreach ($pot_gaji as $p) {
-                $potongan_lain += $p;
-            }
-            $jml_potongan = ($alpha - $pot_gaji[0]) + $potongan_lain;
+
         ?>
-            <br>
+        <?php
+        foreach ($print_slip as $ps) : ?>
+
+            <?php $potongan_gaji = $ps->alpha * 100000; ?>
+
             <table style="width: 100%">
                 <tr>
                     <td width="20%"> Nama Pegawai</td>
@@ -53,17 +63,19 @@
                     <td> : </td>
                     <td> <?= $ps->nama_jabatan ?> </td>
                 </tr>
+                <!-- dari sini  -->
                 <tr>
                     <td> Bulan</td>
                     <td> : </td>
-                    <td> <?= $bulan ?> </td>
+                    <td> <?= substr($ps->bulan, - (strlen($ps->bulan)), -4) ?></td>
                 </tr>
                 <tr>
                     <td> Tahun</td>
                     <td> : </td>
-                    <td> <?= $tahun ?> </td>
+                    <td> <?= substr($ps->bulan, -4, 4) ?> </td>
                 </tr>
-            </table><br><br>
+                <!-- sampai sini -->
+            </table>
 
             <table class="table table-striped table-bordered mt-3">
                 <tr>
@@ -89,11 +101,11 @@
                 <tr>
                     <td>4</td>
                     <td>Potongan</td>
-                    <td>Rp. <?= number_format($jml_potongan, 0, ',', '.') ?></td>
+                    <td>Rp. <?= number_format($potongan_gaji, 0, ',', '.') ?></td>
                 </tr>
                 <tr>
                     <th colspan="2" style="text-align: right;">Total Gaji</th>
-                    <th>Rp. <?= number_format($ps->gaji_pokok + $ps->tj_transport + $ps->uang_makan - $jml_potongan, 0, '.', ',') ?></th>
+                    <th>Rp. <?= number_format($ps->gaji_pokok + $ps->tj_transport + $ps->uang_makan - $potongan_gaji, 0, ',', '.') ?></th>
                 </tr>
             </table>
 
@@ -107,7 +119,6 @@
                         <p class="font-weight"><?= $ps->nama_pegawai ?></p>
                     </td>
                     <td width="200px">
-                        <br><br>
                         <p>Jakarta, <?= date("d F Y") ?> <br> Finance,</p>
                         <br>
                         <br>

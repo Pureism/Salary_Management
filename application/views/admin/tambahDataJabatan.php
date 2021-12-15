@@ -12,7 +12,8 @@
             <div class="form-group">
                 <label>Nama Jabatan</label>
                 <input type="text" name="nama_jabatan" class="form-control">
-                <?php echo form_error('nama_jabatan', '<div class="font-weight-bold text-small text-danger"><i class="fas fa-exclamation-circle mr-2"></i>', '</div>') ?>
+                <?php echo form_error('nama_jabatan', '<div 
+                class="font-weight-bold text-small text-danger"><i class="fas fa-exclamation-circle mr-2"></i>', '</div>') ?>
             </div>
             <div class="form-group">
                 <label>Gaji Pokok</label>

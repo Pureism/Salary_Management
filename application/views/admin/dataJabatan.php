@@ -8,7 +8,7 @@
 
     <a class="btn btn-md btn-success mb-4" href="<?php echo base_url('admin/DataJabatan/tambahData') ?>"><i class="fas fa-add mr-2"></i> Tambah Jabatan</a>
 
-    <?php echo $this->session->flashdata('pesan') ?>
+    <?php echo $this->session->flashdata('jabatan') ?>
 
     <!-- Table Jabatan -->
     <table class="table table-bordered table-striped" style="margin-bottom: 10%;">

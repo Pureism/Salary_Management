@@ -2,6 +2,20 @@
 
 class DataPegawai extends CI_Controller
 {
+    public function __construct()
+    {
+        parent::__construct();
+
+        if ($this->session->userdata('hak_akses') != '1') {
+            $this->session->set_flashdata('pesan', '
+                <div class="alert alert-danger alert-dismissible fade show mb-3" role="alert">
+                   <strong>Anda belum login!</strong>
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                </div>
+            ');
+            redirect('welcome');
+        }
+    }
     public function index()
     {
         // Mengambil data
@@ -42,6 +56,9 @@ class DataPegawai extends CI_Controller
             $jabatan = $this->input->post('jabatan');
             $tanggal_masuk = $this->input->post('tanggal_masuk');
             $status = $this->input->post('status');
+            $hak_akses = $this->input->post('hak_akses');
+            $username = $this->input->post('username');
+            $password = md5($this->input->post('password'));
             $photo = $_FILES['photo']['name'];
 
             // Mengecek file foto
@@ -65,12 +82,15 @@ class DataPegawai extends CI_Controller
                 'jabatan' => $jabatan,
                 'tanggal_masuk' => $tanggal_masuk,
                 'status' => $status,
+                'hak_akses' => $hak_akses,
+                'username' => $username,
+                'password' => $password,
                 'photo' => $photo
             );
             $this->PenggajianModel->insert_data($data, 'data_pegawai');
 
             // Alert jika data berhasil ditambahkan
-            $this->session->set_flashdata('pesan', '
+            $this->session->set_flashdata('pegawai', '
             <div class="alert alert-success alert-dismissible fade show mb-3" role="alert">
                     <i class="fas fa-check-circle mr-3"></i><strong>Data berhasil ditambahkan</strong>
                     <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
@@ -110,6 +130,9 @@ class DataPegawai extends CI_Controller
             $tanggal_masuk = $this->input->post('tanggal_masuk');
             $jabatan = $this->input->post('jabatan');
             $status = $this->input->post('status');
+            $hak_akses = $this->input->post('hak_akses');
+            $username = $this->input->post('username');
+            $password = md5($this->input->post('password'));
             $photo = $_FILES['photo']['name'];
 
             // Mengecek file foto
@@ -133,13 +156,16 @@ class DataPegawai extends CI_Controller
                 'tanggal_masuk' => $tanggal_masuk,
                 'jabatan' => $jabatan,
                 'status' => $status,
+                'hak_akses' => $hak_akses,
+                'username' => $username,
+                'password' => $password,
             );
             $where = array('id_pegawai' => $id);
 
             $this->PenggajianModel->update_data('data_pegawai', $data, $where);
 
             // Alert jika data berhasil ditambahkan
-            $this->session->set_flashdata('pesan', '
+            $this->session->set_flashdata('pegawai', '
                 <div class="alert alert-warning alert-dismissible fade show mb-3" role="alert">
                     <i class="fas fa-check-circle mr-3"></i><strong>Data berhasil diupdate</strong>
                     <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
@@ -157,6 +183,9 @@ class DataPegawai extends CI_Controller
         $this->form_validation->set_rules('jabatan', 'jabatan', 'required');
         $this->form_validation->set_rules('tanggal_masuk', 'tanggal masuk', 'required');
         $this->form_validation->set_rules('status', 'status', 'required');
+        $this->form_validation->set_rules('username', 'username', 'required');
+        $this->form_validation->set_rules('password', 'password', 'required');
+        $this->form_validation->set_rules('hak_akses', 'hak_akses', 'required');
     }
 
     public function deleteData($id, $photo)
@@ -171,7 +200,7 @@ class DataPegawai extends CI_Controller
         $this->PenggajianModel->delete_data($where, 'data_pegawai');
 
         // Alert jika data berhasil ditambahkan
-        $this->session->set_flashdata('pesan', '
+        $this->session->set_flashdata('pegawai', '
         <div class="alert alert-danger alert-dismissible fade show mb-3" role="alert">
             <i class="fas fa-check-circle mr-3"></i><strong>Data berhasil dihapus</strong>
             <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>

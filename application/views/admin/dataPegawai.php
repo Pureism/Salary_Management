@@ -7,7 +7,7 @@
 
     <a class="btn btn-md btn-success mb-4" href="<?php echo base_url('admin/DataPegawai/tambahData') ?>"><i class="fas fa-add mr-2"></i> Tambah Pegawai</a>
 
-    <?php echo $this->session->flashdata('pesan') ?>
+    <?php echo $this->session->flashdata('pegawai') ?>
 
     <!-- Table Jabatan -->
     <table class="table table-bordered table-striped" style="margin-bottom: 10%;">
@@ -20,6 +20,7 @@
             <th class="text-center">Tanggal Masuk</th>
             <th class="text-center">Status</th>
             <th class="text-center">Photo</th>
+            <th class="text-center">Hak Akses</th>
             <th class="text-center">Action</th>
         </tr>
 
@@ -37,6 +38,11 @@
                 <td>
                     <center><img src="<?php echo base_url() . 'assets/photo/' . $p->photo ?>" width="70px" alt=""></center>
                 </td>
+                <?php if ($p->hak_akses == '1') { ?>
+                    <td>Admin</td>
+                <?php } else { ?>
+                    <td>Pegawai</td>
+                <?php } ?>
                 <td>
                     <center>
                         <a class="btn btn-sm btn-warning" href="<?php echo base_url('admin/DataPegawai/updateData/' . $p->id_pegawai) ?>"><i class="fas 

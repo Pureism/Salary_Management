@@ -66,6 +66,7 @@
         </div>
     </div>
 
+    <?php echo $this->session->flashdata('absensi') ?>
     <div class="alert alert-info">Menampilkan data kehadiran pegawai <strong><?php echo $bulan ?> <?php echo $tahun ?></strong></div>
 
     <?php

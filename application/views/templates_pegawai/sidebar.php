@@ -19,7 +19,7 @@
 
             <!-- Nav Item - Dashboard -->
             <li class="nav-item">
-                <a class="nav-link" href="<?php echo base_url('admin/dashboard') ?>">
+                <a class="nav-link" href="<?php echo base_url('pegawai/dashboard') ?>">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Dashboard</span></a>
             </li>
@@ -32,40 +32,16 @@
                 Utilities
             </div>
 
-            <!-- Nav Item - Pages Collapse Menu -->
+            <!-- Menu -->
             <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
-                    <i class="fas fa-fw fa-database"></i>
-                    <span>Database</span>
-                </a>
-                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-                    <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="<?php echo base_url('admin/DataPegawai') ?>">Data Pegawai</a>
-                        <a class="collapse-item" href="<?php echo base_url('admin/DataJabatan') ?>">Data Jabatan</a>
-                    </div>
-                </div>
+                <a class="nav-link" href="<?php echo base_url('pegawai/dataGaji') ?>">
+                    <i class="fas fa-fw fa-money-check-alt"></i>
+                    <span>Data Gaji</span></a>
             </li>
-
-            <!-- Nav Item - Utilities Collapse Menu -->
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities" aria-expanded="true" aria-controls="collapseUtilities">
-                    <i class="fas fa-fw fa-folder-open"></i>
-                    <span>Laporan</span>
-                </a>
-                <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
-                    <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="<?php echo base_url('admin/DataAbsensi') ?>">Laporan Absensi</a>
-                        <a class="collapse-item" href="<?php echo base_url('admin/DataPenggajian') ?>">Laporan Gaji</a>
-                        <a class="collapse-item" href="<?php echo base_url('admin/PotonganGaji') ?>">Data Potongan Gaji</a>
-                        <a class="collapse-item" href="<?php echo base_url('admin/SlipGaji') ?>">Slip Gaji</a>
-                    </div>
-                </div>
-            </li>
-
 
             <!-- Nav Item - Charts -->
             <li class="nav-item">
-                <a class="nav-link" href="<?php echo base_url('gantiPassword') ?>">
+                <a class="nav-link" href="<?php echo base_url('pegawai/gantiPassword') ?>">
                     <i class="fas fa-fw fa-unlock"></i>
                     <span>Ganti Password</span></a>
             </li>
@@ -113,8 +89,7 @@
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <span class="mr-2 d-none d-lg-inline text-gray-600 small">
                                     Selamat Datang <?php echo $this->session->userdata('nama_pegawai') ?></span>
-                                <img class="img-profile rounded-circle" src="<?php echo base_url('assets/photo/') .
-                                                                                    $this->session->userdata('photo') ?>">
+                                <img class="img-profile rounded-circle" src="<?php echo base_url('assets/img/') . $this->session->userdata('photo') ?>">
                             </a>
                             <!-- Dropdown - User Information -->
                         </li>

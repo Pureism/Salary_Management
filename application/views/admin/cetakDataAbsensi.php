@@ -18,7 +18,7 @@
     <div class="mx-5 my-3">
 
         <center>
-            <h1>Kelompok 5</h1>
+            <h1>Group 5</h1>
             <h2>Daftar Absensi Pegawai</h2>
         </center>
 
